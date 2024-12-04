@@ -7,7 +7,7 @@ workflows:
       groups:
         - app_store_credentials
       vars:
-        XCODE_WORKSPACE: "BregenzInsiderApp.xcodeproj" # <----
+        XCODE_WORKSPACE: "BregenzInsiderApp.xcworkspace" # <----
         XCODE_SCHEME: "BregenzInsiderApp" # <----
         BUNDLE_ID: "com.bregenzinsider.app" # <----
         APP_STORE_APP_ID: 6738397447 # <----
