@@ -5,7 +5,7 @@ workflows:
     instance_type: mac_mini_m2
     environment:
       groups:
-        - app_store_credentials
+        - creds
       vars:
         XCODE_WORKSPACE: "BregenzInsiderApp.xcworkspace" # <----
         XCODE_SCHEME: "BregenzInsiderApp" # <----
