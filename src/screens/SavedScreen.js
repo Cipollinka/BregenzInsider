@@ -41,7 +41,7 @@ const SavedScreen = ({ selectedScreen, setRoutedLocation, setSelectedScreen, rou
                 Alert.alert('Error', 'No link to share');
                 return;
             }
-            console.log('Sharing URL:', url); 
+            console.log('Sharing URL:', url);
             await Share.share({
                 message: `I found this location on BregenzInsider: ${url}`,
             });
@@ -55,6 +55,8 @@ const SavedScreen = ({ selectedScreen, setRoutedLocation, setSelectedScreen, rou
     }, [selectedScreen])
 
     return (
+        <View style={{flex:1}}>
+            <Image source={require('../assets/images/bg.png')} style={{width:'100%', height: '100%', position: 'absolute', flex: 1}}/>
         <SafeAreaView style={{ marginBottom: 100 }}>
             <Text style={styles.title(dimensions)}>Saved</Text>
             {savedLocations.length !== 0 ? (
@@ -160,7 +162,8 @@ const SavedScreen = ({ selectedScreen, setRoutedLocation, setSelectedScreen, rou
                 </Text>
             )}
         </SafeAreaView>
-    )
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({

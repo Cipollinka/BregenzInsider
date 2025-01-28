@@ -101,7 +101,9 @@ const InfoScreen = () => {
     );
 
     return (
-        <SafeAreaView className="flex-1 flex items-center bg-[#181818] " style={{ width: '100%' }}>
+        <View style={{flex:1}}>
+            <Image source={require('../assets/images/bg.png')} style={{width:'100%', height: '100%', position: 'absolute', flex: 1}}/>
+        <SafeAreaView className="flex-1 flex items-center  " style={{ width: '100%' }}>
             <View className='flex-row justify-between' style={{width: '90%'}} >
 
                 {isInfoBlockVisible && (
@@ -115,10 +117,10 @@ const InfoScreen = () => {
                     className="text-white"
                     style={[
                         styles.generalText(dimensions),
-                        { fontFamily: 'MochiyPopOne-Regular', 
-                            fontSize: dimensions.width * 0.07, 
-                            paddingTop: 16,  
-                            fontWeight: 700, 
+                        { fontFamily: 'MochiyPopOne-Regular',
+                            fontSize: dimensions.width * 0.07,
+                            paddingTop: 16,
+                            fontWeight: 700,
                             paddingRight: isInfoBlockVisible ? '12%' : '0%',
                             lineHeight: dimensions.width * 0.1 }
                     ]}
@@ -126,7 +128,7 @@ const InfoScreen = () => {
                     {isInfoBlockVisible ? 'Reading' : 'Bregenz Insider'}
                 </Text>
                 {isInfoBlockVisible && (<Text></Text>)}
-                
+
             </View>
             {isInfoBlockVisible ? (
                 <ScrollView>
@@ -232,6 +234,7 @@ const InfoScreen = () => {
 
 
         </SafeAreaView>
+        </View>
     );
 };
 

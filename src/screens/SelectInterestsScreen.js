@@ -65,6 +65,8 @@ const SelectInterestsScreen = () => {
     });
 
     return (
+        <View style={{flex:1}}>
+            <Image source={require('../assets/images/bg.png')} style={{width:'100%', height: '100%', position: 'absolute', flex: 1}}/>
         <StyledView
             className="flex-1 bg-customBg"
             style={styles.container}
@@ -111,6 +113,7 @@ const SelectInterestsScreen = () => {
                 <Text style={styles.submitButtonText}>Continue</Text>
             </StyledTouchableOpacity>
         </StyledView>
+        </View>
     );
 };
 

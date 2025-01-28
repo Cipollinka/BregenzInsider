@@ -463,9 +463,7 @@ const HomeScreen = () => {
 
   return (
     <View className="bg-customBg" style={{ flex: 1, alignItems: 'center', }}>
-
-
-
+      <Image source={require('../assets/images/bg.png')} style={{width:'100%', height: '100%', position: 'absolute', flex: 1}}/>
       {selectedScreen === 'Home' ? (
         <View className="flex-1 px-5  " style={{ paddingTop: dimensions.width < 380 ? 10 : 40, width: '100%', }}>
 
@@ -613,16 +611,16 @@ const HomeScreen = () => {
             )}
 
             <TouchableOpacity onPress={() => setSelectedScreen('Surprise')} style={{
-              width: '100%', 
-              height: '8%', 
-              borderRadius: 25, 
+              width: '100%',
+              height: '8%',
+              borderRadius: 25,
               overflow: 'hidden',
               marginTop: 10
             }}>
               <ImageBackground
                 source={require('../assets/images/ButtonBackBr.png')}
                 style={{flex: 1,
-                  justifyContent: 'center', 
+                  justifyContent: 'center',
                   alignItems: 'center',}}
                 imageStyle={styles.image}
               >

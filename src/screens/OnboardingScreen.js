@@ -37,6 +37,8 @@ const OnboardingScreen = () => {
   );
 
   return (
+      <View style={{ flex: 1 }}>
+          <Image source={require('../assets/images/bg.png')} style={{width:'100%', height: '100%', position: 'absolute', flex: 1}}/>
     <StyledView className="flex-1 items-center bg-customBg justify-between">
       <StyledView className="flex">
         <FlatList
@@ -47,7 +49,7 @@ const OnboardingScreen = () => {
           pagingEnabled
           bounces={false}
           keyExtractor={(item) => item.id.toString()}
-          
+
           scrollEventThrottle={32}
         />
       </StyledView>
@@ -64,6 +66,7 @@ const OnboardingScreen = () => {
       </StyledTouchableOpacity>
 
     </StyledView>
+      </View>
   );
 };
 

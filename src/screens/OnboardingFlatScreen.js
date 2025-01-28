@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { View, FlatList, Animated, Text, TouchableOpacity, ImageBackground, Dimensions, Image, Platform } from 'react-native';
 import { styled } from 'nativewind';
-import onboardingData from '../slides'; 
+import onboardingData from '../slides';
 import { useNavigation } from '@react-navigation/native';
 import Paginator from '../components/Paginator';
 
@@ -11,10 +11,10 @@ const StyledText = styled(Text);
 
 const OnboardingFlatScreen = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [dimensions, setDimensions] = useState(Dimensions.get('window')); 
+  const [dimensions, setDimensions] = useState(Dimensions.get('window'));
   const scrollX = useRef(new Animated.Value(0)).current;
   const slidesRef = useRef(null);
-  const navigation = useNavigation(); 
+  const navigation = useNavigation();
 
   const fadeAnimGoogle = useRef(new Animated.Value(0)).current;
   const fadeAnimFacebook = useRef(new Animated.Value(0)).current;
@@ -24,14 +24,14 @@ const OnboardingFlatScreen = () => {
     const onChange = ({ window }) => {
       setDimensions(window);
     };
-  
+
     const dimensionListener = Dimensions.addEventListener('change', onChange);
-  
+
     return () => {
-      dimensionListener.remove(); 
+      dimensionListener.remove();
     };
   }, []);
-  
+
 
   useEffect(() => {
     if (currentIndex === onboardingData.length - 1) {
@@ -67,11 +67,11 @@ const OnboardingFlatScreen = () => {
     if (currentIndex < onboardingData.length - 1) {
       slidesRef.current.scrollToIndex({ index: currentIndex + 1 });
     } else {
-      navigation.navigate('Home'); 
+      navigation.navigate('Home');
     }
   };
 
-  const topPadding = (Platform.OS === 'ios' && (dimensions.height >= 812)) ? 37 : 0; 
+  const topPadding = (Platform.OS === 'ios' && (dimensions.height >= 812)) ? 37 : 0;
 
   const renderItem = ({ item }) => (
     <View style={{ width: dimensions.width }} className="flex-1 justify-start items-center">
@@ -79,9 +79,9 @@ const OnboardingFlatScreen = () => {
         source={item.image}
         style={{
           width: dimensions.width,
-          height: dimensions.height * (dimensions.width < 400 ? 0.35 : 0.4), 
+          height: dimensions.height * (dimensions.width < 400 ? 0.35 : 0.4),
           marginBottom: 16,
-          marginTop: topPadding, 
+          marginTop: topPadding,
         }}
         resizeMode="contain"
       />
@@ -95,6 +95,8 @@ const OnboardingFlatScreen = () => {
   );
 
   return (
+      <View style={{flex:1}}>
+        <Image source={require('../assets/images/bg.png')} style={{width:'100%', height: '100%', position: 'absolute', flex: 1}}/>
     <StyledView className="flex-1 items-center bg-[#181818] justify-between">
       <StyledView className="flex-[3]">
         <FlatList
@@ -145,6 +147,7 @@ const OnboardingFlatScreen = () => {
 )}
 
     </StyledView>
+      </View>
   );
 };
 

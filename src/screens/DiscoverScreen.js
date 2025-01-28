@@ -17,6 +17,8 @@ const DiscoverScreen = () => {
 
 
     return (
+        <View style={{flex:1}}>
+            <Image source={require('../assets/images/bg.png')} style={{width:'100%', height: '100%', position: 'absolute', flex: 1}}/>
         <StyledView className="flex-1 items-center bg-customBg justify-between">
             <View className="flex-1" style={{
                         width: '100%',
@@ -28,7 +30,7 @@ const DiscoverScreen = () => {
                     style={{
                         width: '100%',
                         height: '50%',
-                        
+
                     }}
                     resizeMode="stretch"
                 />
@@ -53,6 +55,7 @@ const DiscoverScreen = () => {
             </StyledTouchableOpacity>
 
         </StyledView>
+        </View>
     );
 };
 

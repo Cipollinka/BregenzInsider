@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import {
-  View,
-  Text,
-  TouchableOpacity,
-  SafeAreaView,
-  StyleSheet,
-  Dimensions,
-  ScrollView
+    View,
+    Text,
+    TouchableOpacity,
+    SafeAreaView,
+    StyleSheet,
+    Dimensions,
+    Image
 } from 'react-native';
 import { styled } from 'nativewind';
 import { ChevronLeftIcon, ChevronRightIcon, XMarkIcon } from 'react-native-heroicons/outline';
@@ -17,6 +17,8 @@ const AboutScreen = ({ setSelectedScreen }) => {
   const [dimensions, setDimensions] = useState(Dimensions.get('window'));
 
   return (
+      <View style={{flex:1}}>
+          <Image source={require('../assets/images/bg.png')} style={{width:'100%', height: '100%', position: 'absolute', flex: 1}}/>
     <SafeAreaView className="flex-1" style={{marginBottom: 80}}>
       {/* Заголовок "About" закріплений вгорі */}
       <View className="justify-start flex-row items-center mt-4" style={{width: '90%', paddingBottom: 25}}>
@@ -44,7 +46,7 @@ const AboutScreen = ({ setSelectedScreen }) => {
             textAlign: 'left',
           }}
         >
-           Discover the hidden gems and breathtaking views of Bregenz with Bregenz Insider, your personalized guide to the city’s most scenic spots. 
+           Discover the hidden gems and breathtaking views of Bregenz with Bregenz Insider, your personalized guide to the city’s most scenic spots.
            Designed for locals and visitors alike, this app curates a unique experience, helping you explore Bregenz’s beauty through nature, history, and local charm.{"\n\n"}
            Whether you’re searching for panoramic mountain views, peaceful lakefronts, or historic landmarks, Bregenz Insider tailors recommendations based on your interests.{"\n"}
            Select from categories like Scenic Spots, Historical Landmarks, Local Eats, and Art & Culture, and let the app guide you to places that match your vibe.{"\n"}
@@ -52,6 +54,7 @@ const AboutScreen = ({ setSelectedScreen }) => {
            With Bregenz Insider, you’ll experience the heart of Bregenz in an authentic way—exploring beyond the usual tourist paths to uncover the spots that make this city unforgettable.
       </Text>
     </SafeAreaView>
+      </View>
   );
 };
 

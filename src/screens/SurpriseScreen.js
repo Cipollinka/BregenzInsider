@@ -27,7 +27,7 @@ const SurpriseScreen = ({ locations, savedLocations, setSavedLocations, setSelec
         const interval = setInterval(() => {
             setProgress((prev) => Math.min(prev + 6.67, 100)); // 6.67 = 100/15, для 1.5 секунди
         }, 100);
-        
+
 
 
         return () => {
@@ -104,6 +104,8 @@ const SurpriseScreen = ({ locations, savedLocations, setSavedLocations, setSelec
     };
 
     return (
+        <View style={{flex:1}}>
+            <Image source={require('../assets/images/bg.png')} style={{width:'100%', height: '100%', position: 'absolute', flex: 1}}/>
         <SafeAreaView style={{ width: '100%', flex: 1,  }}>
             <Text
                 className="text-white"
@@ -147,9 +149,9 @@ const SurpriseScreen = ({ locations, savedLocations, setSavedLocations, setSelec
                         }}>
                             <View
                                 style={{
-                                    width: `${progress}%`, 
+                                    width: `${progress}%`,
                                     height: '100%',
-                                    backgroundColor: '#FF4E4E', 
+                                    backgroundColor: '#FF4E4E',
                                 }}
                             />
                         </View>
@@ -308,7 +310,8 @@ const SurpriseScreen = ({ locations, savedLocations, setSavedLocations, setSelec
                 </View>
             )}
         </SafeAreaView>
-    )
+        </View>
+    );
 }
 
 export default SurpriseScreen

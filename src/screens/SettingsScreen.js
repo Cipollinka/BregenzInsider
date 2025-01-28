@@ -88,8 +88,10 @@ const SettingsScreen = ({ setSelectedScreen }) => {
     });
 
     return (
+        <View style={{flex:1}}>
+            <Image source={require('../assets/images/bg.png')} style={{width:'100%', height: '100%', position: 'absolute', flex: 1}}/>
         <StyledView
-            className="flex-1 bg-customBg"
+            className="flex-1"
             style={{
                 width: '100%', alignItems: 'center',
                 justifyContent: 'center',
@@ -165,7 +167,7 @@ const SettingsScreen = ({ setSelectedScreen }) => {
                                     fontSize: dimensions.width * 0.03,
                                     fontFamily: 'Montserrat-Regular',
                                     textAlign: 'center',
-                                    
+
 
                                 },
                             }} className="text-white">{button.buttonText}</Text>
@@ -203,6 +205,7 @@ const SettingsScreen = ({ setSelectedScreen }) => {
                 }}>About the app</Text>
             </StyledTouchableOpacity>
         </StyledView>
+        </View>
     );
 };
 

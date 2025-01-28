@@ -30,7 +30,7 @@ const RouteScreen = ({ routedLocation, savedLocations, selectedScreen, setSavedL
 
     const openLink = (url) => {
         if (url) {
-            console.log('Opening URL:', url); 
+            console.log('Opening URL:', url);
             Linking.openURL(url).catch(() => {
                 Alert.alert('Error', 'Cannot open the link');
             });
@@ -46,7 +46,7 @@ const RouteScreen = ({ routedLocation, savedLocations, selectedScreen, setSavedL
                 Alert.alert('Error', 'No link to share');
                 return;
             }
-            console.log('Sharing URL:', url); 
+            console.log('Sharing URL:', url);
             await Share.share({
                 message: `I found this location on BregenzInsider: ${url}`,
             });
@@ -55,14 +55,14 @@ const RouteScreen = ({ routedLocation, savedLocations, selectedScreen, setSavedL
         }
     };
 
-    
+
     const saveLocation = async (location) => {
         try {
           const saved = await AsyncStorage.getItem('savedLocations');
           const parsedLocations = saved ? JSON.parse(saved) : [];
-    
+
           const locationIndex = parsedLocations.findIndex((loc) => loc.savedId === routedLocation.savedId);
-    
+
           if (locationIndex === -1) {
             const updatedLocations = [location, ...parsedLocations];
             await AsyncStorage.setItem('savedLocations', JSON.stringify(updatedLocations));
@@ -81,6 +81,8 @@ const RouteScreen = ({ routedLocation, savedLocations, selectedScreen, setSavedL
 
 
     return (
+        <View style={{flex: 1}}>
+            <Image source={require('../assets/images/bg.png')} style={{width:'100%', height: '100%', position: 'absolute', flex: 1}}/>
         <SafeAreaView>
             {routedLocation ? (
 
@@ -219,7 +221,7 @@ const RouteScreen = ({ routedLocation, savedLocations, selectedScreen, setSavedL
                         fontSize: dimensions.width * 0.05,
                         justifyContent: 'center',
                         display: 'flex',
-                        flex: 1, 
+                        flex: 1,
                         paddingHorizontal: 30,
                         paddingTop: '70%'
                     }}
@@ -229,6 +231,7 @@ const RouteScreen = ({ routedLocation, savedLocations, selectedScreen, setSavedL
 
             )}
         </SafeAreaView>
+        </View>
     );
 };
 
